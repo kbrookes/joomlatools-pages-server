@@ -1,27 +1,14 @@
-# fly.toml
+# fly.toml file generated for bold-morning-3415 on 2021-10-07T10:31:12+11:00
 
-##
-# To get started
-# 1. Install: https://fly.io/docs/flyctl/installing/
-# 2. Login: https://fly.io/docs/getting-started/login-to-fly/
-
-##
-# To deploy app
-# > flyctl launch (only if the app does not exist yet)
-# > flyctl deploy
+app = "bold-morning-3415"
 
 kill_signal = "SIGTERM"
 kill_timeout = 10
 
 [env]
-  APP_ENV = "development"
   APP_CACHE = 1
   APP_DEBUG = 1
-
-# Uncomment to deploy from Git
-#[build.args]
-#  GIT_DEPLOY_URL =
-#  GIT_DEPLOY_BRANCH = "master"
+  APP_ENV = "development"
 
 [experimental]
   auto_rollback = true
