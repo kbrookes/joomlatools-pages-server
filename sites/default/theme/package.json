@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "@radishio/tailwindcss-marker": "^1.0.3",
+    "@tailwindcss/aspect-ratio": "^0.2.1",
+    "@tailwindcss/forms": "^0.3.3",
+    "@tailwindcss/line-clamp": "^0.2.1",
+    "@tailwindcss/typography": "^0.4.1"
+  }
+}

@@ -1,0 +1,235 @@
+//// TEXT
+p {
+  @apply mb-5;
+}
+
+/// OVERLAYS
+.hasOverlay {
+  &:before {
+    content: "";
+    @apply absolute w-full h-full top-0 left-0 z-10;
+  }
+  &.overlay {
+    &-black {
+      &:before {
+        @apply bg-black;
+      }
+    }
+    &-white {
+      &:before {
+        @apply bg-white;
+      }
+    }
+    &-primary {
+      &:before {
+        @apply bg-primary;
+      }
+    }
+    &-secondary {
+      &:before {
+        @apply bg-secondary;
+      }
+    }
+    &-dark {
+      &:before {
+        @apply bg-dark;
+      }
+    }
+    &-light {
+      &:before {
+        @apply bg-light;
+      }
+    }
+    &-0 {
+      &:before {
+        @apply opacity-0;
+      }
+    }
+    &-10 {
+      &:before {
+        @apply opacity-10;
+      }
+    }
+    &-20 {
+      &:before {
+        @apply opacity-20;
+      }
+    }
+    &-30 {
+      &:before {
+        @apply opacity-30;
+      }
+    }
+    &-40 {
+      &:before {
+        @apply opacity-40;
+      }
+    }
+    &-50 {
+      &:before {
+        @apply opacity-50;
+      }
+    }
+    &-60 {
+      &:before {
+        @apply opacity-60;
+      }
+    }
+    &-70 {
+      &:before {
+        @apply opacity-70;
+      }
+    }
+    &-80 {
+      &:before {
+        @apply opacity-80;
+      }
+    }
+    &-90 {
+      &:before {
+        @apply opacity-90;
+      }
+    }
+    &-95 {
+      &:before {
+        @apply opacity-95;
+      }
+    }
+    &-100 {
+      &:before {
+        @apply opacity-100;
+      }
+    }
+  }
+  .container {
+    @apply relative z-20;
+  }
+}
+
+::marker {
+  @apply text-primary;
+}
+
+//// BUTTONS
+
+.btn {
+  @apply inline-block rounded px-4 md:px-6 py-3 md:py-4 shadow-md text-base md:text-xl font-bold transition-all duration-300 ease-in-out;
+  &-primary {
+    @apply bg-primary text-white hover:bg-secondary hover:text-dark;
+  }
+  &-secondary {
+    @apply bg-secondary text-dark hover:bg-dark hover:text-secondary;
+  }
+}
+
+//// HAMBURGERS
+.hamburger-inner,
+.hamburger-inner::before,
+.hamburger-inner::after {
+  @apply bg-primary transition-all duration-300 ease-in-out;
+  .navScrolled & {
+    @apply bg-white;
+  }
+}
+
+.hamburger.is-active .hamburger-inner,
+.hamburger.is-active .hamburger-inner::before,
+.hamburger.is-active .hamburger-inner::after {
+  @apply bg-white;
+}
+
+/// FRIDAY CRM FORMS
+.fridaycrm-widget-form {
+  .widget {
+    &-field {
+      @apply mb-3;
+      input[type="text"],
+      textarea {
+        @apply w-full md:w-2/3 rounded border-primary;
+      }
+    }
+  }
+  input[type="submit"] {
+    @apply inline-block rounded px-4 md:px-6 py-3 md:py-4 shadow-md text-base md:text-xl font-bold transition-all duration-300 ease-in-out bg-primary text-white hover:bg-secondary hover:text-dark;
+  }
+}
+
+/* ––––––––––––––––––––––––––––––––––––––––––––––––––
+Based on: https://codepen.io/nickelse/pen/YGPJQG
+Influenced by: https://sproutsocial.com/
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+
+/* #Mega Menu Styles
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.mega-menu {
+display: none;
+left: 0;
+position: absolute;
+text-align: left;
+width: 100%;
+}
+
+
+
+/* #hoverable Class Styles
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.hoverable {
+position: static;
+}
+
+.hoverable > a:after {
+content: "\25BC";
+font-size: 10px;
+padding-left: 6px;
+position: relative;
+top: -1px;
+}
+
+.hoverable:hover .mega-menu {
+display: block;
+}
+
+
+/* #toggle Class Styles
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.toggleable > label:after {
+content: "\25BC";
+font-size: 10px;
+padding-left: 6px;
+position: relative;
+top: -1px;
+}
+
+.toggle-input {
+display: none;
+}
+.toggle-input:not(checked) ~ .mega-menu {
+display: none;
+}
+
+.toggle-input:checked ~ .mega-menu {
+display: block;
+}
+
+.toggle-input:checked + label {
+color: white;
+background: #2c5282; /*@apply bg-blue-800 */
+}
+
+.toggle-input:checked ~ label:after {
+content: "\25B2";
+font-size: 10px;
+padding-left: 6px;
+position: relative;
+top: -1px;
+}
+
+.filter {
+  &.blur {
+    &-sm {
+      filter: blur(4px);
+    }
+  }
+}

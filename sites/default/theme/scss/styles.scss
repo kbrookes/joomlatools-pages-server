@@ -1,0 +1,24 @@
+@tailwind base;
+
+/// CUSTOM CSS
+@import "./kiss/hamburgers/hamburgers.scss";
+@import "./kiss/partials/common.scss";
+@import "./kiss/base-fonts.scss";
+@import "./kiss/base-custom.scss";
+
+@tailwind components;
+@tailwind utilities;
+
+/* This is autoprefixed for different browsers */
+.foo {
+  background-color: var(--color__cta--darker);
+  user-select: none;
+}
+
+/* Nested rules are expanded */
+.bar {
+  color: red;
+  & > .baz {
+    color: blue;
+  }
+}
