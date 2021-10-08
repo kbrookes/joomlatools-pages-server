@@ -19,6 +19,69 @@
   }
 }
 
+/// STOCK RESEARCH TABLE
+#stock-research {
+  thead {
+    tr {
+      @apply bg-primary text-white uppercase text-sm text-left;
+      th {
+        @apply px-2 py-3;
+        &:last-child {
+          @apply  w-1/2;
+        }
+      }
+    }
+  }
+  tbody {
+    tr {
+      @apply border-b border-gray-200 hover:bg-gray-100 text-sm;
+      &:nth-child(even) {
+        @apply bg-gray-50;
+      }
+      td {
+        @apply px-2 py-1;
+        &:first-child {
+          @apply font-bold whitespace-nowrap;
+        }
+        &:nth-child(2){
+          @apply font-bold;
+        }
+        &:nth-child(7){
+          @apply whitespace-nowrap;
+        }
+      }
+    }
+  }
+}
+
+/// LABEL COLORS 
+.take-profits {
+  @apply bg-yellow-600;
+}
+
+.sell {
+  @apply bg-red-600;
+}
+
+.spec-buy {
+  @apply bg-green-400;
+}
+
+.buy {
+  @apply bg-green-600;
+}
+
+.hold {
+  @apply bg-yellow-400;
+}
+
+
+.gridjs-thead {
+  .gridjs-tr {
+   
+  }
+}
+
 @keyframes animateHero {
   0% {
     background-position: 15% 0%;

@@ -9,75 +9,62 @@ title: Stock Research
         identity_key: slug
 layout: /default
 ---
-<script type="module">
-    import {
-        Grid,
-        html
-    } from "https://unpkg.com/gridjs?module";
-</script>
 <link href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
-<div class="bg-white shadow-md rounded my-6">
-    <table class="table-fixed">
-        <thead>
-            <tr class="bg-primary text-white uppercase text-sm text-left">
-                <th class="px-2 py-3">Company</th>
-                <th class="px-2 py-3">Code</th>
-                <th class="px-2 py-3">Sector</th>
-                <th class="px-2 py-3">Market Cap</th>
-                <th class="px-2 py-3">Current Price</th>
-                <th class="px-2 py-3">Div Yield</th>
-                <th class="px-2 py-3">Rating</th>
-                <th class="px-2 py-3 w-1/2">Comment</th>
-            </tr>
-        </thead>
-        <tbody>
-        <? 
-        $i = 0;
-        foreach(collection() as $article): 
-            $i++;
-            $label_bg = 'bg-yellow-400';
-            $rating = $article->content['Company_Rating'];
-            switch ($rating){
-                case 'Sell':
-                    $label_bg = 'bg-red-600';
-                    break;
-                case 'Take profits':
-                    $label_bg = 'bg-yellow-600';
-                    break;
-                case 'Spec Buy':
-                    $label_bg = 'bg-green-400';
-                    break;
-                case 'Buy':
-                    $label_bg = 'bg-green-600';
-                    break;
-                case 'Hold':
-                    $label_bg = 'bg-yellow-400';
-                    break;
-            }
-            
-        ?>
-            <tr class="border-b border-gray-200 <?= $i%2 ? '' : 'bg-gray-50'; ?> hover:bg-gray-100 text-sm">
-                <td class="px-2 py-1 font-bold whitespace-nowrap "><a href="<?= route(page('/stock-research/article'), ['slug' => $article->slug]) ?>"><?= $article->content['Name'] ?></a></td>
-                <td class="px-2 py-1 font-bold"><?= $article->content['Code'] ?></td>
-                <td class="px-2 py-1"><?= $article->content['Sector']; ?></td>
-                <td class="px-2 py-1"><?= $article->content['Market_Cap']; ?></td>
-                <td class="px-2 py-1"><?= $article->content['Current_Price']; ?></td>
-                <td class="px-2 py-1"><?= $article->content['Div_Yield']; ?></td>
-                <td class="px-2 py-1 uppercase"><span class="whitespace-nowrap text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-white <?= $label_bg . ' ' . $rating; ?> uppercase last:mr-0 mr-1"><?= $rating; ?></span></td>
-                <td class="px-2 py-1"><? 
-                $recommendation = $article->content['Recommendations'];
-                if(is_array($recommendation)){
-                    $recommendation = $article->content['Recommendations']['content'];
-                    foreach($recommendation as $content){
-                        $paras = $content['content'];
-                        foreach($paras as $para){
-                            echo '<p>' . $para['text'] . '</p>';
-                        }
+
+<div id="wrapper"></div>
+
+<script src="https://unpkg.com/gridjs/dist/gridjs.umd.js" defer></script>
+<script data-inine="true" defer="true" >
+document.addEventListener("DOMContentLoaded", function() {
+    const { Grid, html } = gridjs;
+    new gridjs.Grid({
+          columns: [
+              { name: 'Company',
+                formatter: (_, row) => html(`<a href="/stock-research/${row.cells[0].data.replace(/\s+/g, '-').toLowerCase()}" class="font-bold text-primary">${row.cells[0].data}</a>`) },
+              { name: 'Code',
+                formatter: (cell) => html(`<strong>${cell}</strong>`) },
+              { name: 'Sector' }, 
+              { name: 'Market Cap' },
+              { name: 'Current Price' },
+              { name: 'Div Yield' },
+              { name: 'Rating',
+                formatter: (_, row) => html(`<span class='whitespace-nowrap text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-white uppercase ${row.cells[6].data.replace(/\s+/g, '-').toLowerCase()}'>${row.cells[6].data}</span>`)
+              },
+              { name: 'Comment' },
+          ],
+          search: true,
+          sort: true,
+          data: [
+            <? foreach(collection() as $article): 
+                $rating = $article->content['Company_Rating'];
+            ?>
+            ["<?= $article->content['Name'] ?>", "<?= $article->content['Code'] ?>", "<?= $article->content['Sector']; ?>", "<?= $article->content['Market_Cap']; ?>", "<?= $article->content['Current_Price']; ?>", "<?= $article->content['Div_Yield']; ?>", "<?= $rating; ?>", "<? 
+            $recommendation = $article->content['Recommendations'];
+            if(is_array($recommendation)){
+                $recommendation = $article->content['Recommendations']['content'];
+                foreach($recommendation as $content){
+                    $paras = $content['content'];
+                    foreach($paras as $para){
+                        echo $para['text'];
                     }
                 }
-                ?></td>
-            </tr>
-        <? endforeach; ?>
-        </tbody>
-    </table>
-</div>
+            }
+            ?>"],
+            <? endforeach; ?>
+          ],
+          className: {
+              thead: 'bg-primary text-white uppercase text-sm text-left',
+              th: 'px-2 py-3 text-sm text-left',
+              td: 'px-2 py-1 text-sm',
+              table: 'w-full'
+            },
+            style: {
+                th: {
+                    'background-color': 'rgba(0, 143, 210, var(--tw-bg-opacity))',
+                    color: '#fff',
+                    'text-align': 'left'
+                },
+            },
+        }).render(document.getElementById("wrapper"));
+    });
+</script>

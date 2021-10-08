@@ -13,7 +13,6 @@
 		
 		<script src="https://js.chargebee.com/v2/chargebee.js" data-cb-site="undertheradarreport-test" ></script>
 		<script src="theme://js/gauge.min.js" ></script>
-		<script src="theme://js/stock-research.js" ></script>
 		
 		<ktml:style>
 		<ktml:style src="theme://css/styles.css?v=023" rel="preload" as="style" type="text/css" />
