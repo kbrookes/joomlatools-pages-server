@@ -4,7 +4,7 @@ class ExtPagesModelAirtable extends ComPagesModelWebservice
 	protected function _initialize(KObjectConfig $config)
 	{
 		$config->append([
-			'api_key'    => null
+			'api_key'    => null,
 			'data_path'   => 'records',
 			'cache_path'  =>  $this->getObject('com://site/pages.config')->getCachePath().'/airtable',
 		]);
