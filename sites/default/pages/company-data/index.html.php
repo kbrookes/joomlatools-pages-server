@@ -1,25 +1,31 @@
 ---
+title: Stock Research
 @route: /company-data
 @collection:
     model: airtable
     config:
-        url: https://api.airtable.com/v0/appxFHbo5P6cryBsh/Table%201
+        url: https://api.airtable.com/v0/appxFHbo5P6cryBsh/Table%201?maxRecords=300
         api_key: keyvuFe20ZrHxoipH
+    state:
+        sort: Name
+        order: asc
+        limit: 300
+layout: /default
+metadata:
+    robots: noindex, nofollow
 ---
 
+<? page()->title = "Stock Research"; ?>
+
+
 <link href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
-
-<?  foreach(collection() as $item): ?>
-<p><?= $item->Name; ?> <?= $item->Code; ?> <?= $item->Sector; ?> <?= $item->Market_Cap; ?> <?= $item->Div_Yield; ?> <?= $item->Company_Rating; ?> <?= $item->Net_Cash_or_Debt_M; ?> <?= $item->Return; ?></p>
-
-<? endforeach; ?>
 
 <div id="wrapper"></div>
 
 <script src="https://unpkg.com/gridjs/dist/gridjs.umd.js" defer></script>
 <script data-inine="true" defer="true" >
 document.addEventListener("DOMContentLoaded", function() {
-    const { Grid, html } = gridjs;
+    const { Grid, html, h } = gridjs;
     new gridjs.Grid({
           columns: [
               { name: 'Company',
@@ -30,7 +36,14 @@ document.addEventListener("DOMContentLoaded", function() {
               { name: 'Market Cap' },
               { name: 'Div Yield' },
               { name: 'Rating',
-                formatter: (_, row) => html(`<span class='whitespace-nowrap text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-white uppercase ${row.cells[6].data.replace(/\s+/g, '-').toLowerCase()}'>${row.cells[6].data}</span>`)
+                formatter: (_, row) => html(`<span class='whitespace-nowrap text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-white uppercase ${row.cells[5].data.replace(/\s+/g, '-').toLowerCase()}'>${row.cells[5].data}</span>`)
+              },
+              { name: 'Net Cash/Debt $m',
+                formatter: (cell) => {
+                    return h('b', { style: {
+                      'color': cell > 0 ? 'green' : 'red'
+                    }}, cell);
+                  }
               },
           ],
           search: true,
@@ -38,8 +51,9 @@ document.addEventListener("DOMContentLoaded", function() {
           data: [
             <?  foreach(collection() as $item):
                 $rating = $item->Company_Rating;
+                $netCash = $item->Net_Cash_or_Debt_M;
             ?>
-            ["<?= $item->Name ?>", "<?= $item->Code ?>", "<?= $item->Sector; ?>", "<?=  $item->Market_Cap; ?>", "<?= $item->Div_Yield; ?>", "<?= $rating; ?>",
+            ["<?= $item->Name; ?>", "<?= $item->Code; ?>", "<?= $item->Sector; ?>", "<?=  $item->Market_Cap; ?>", "<?= $item->Div_Yield; ?>", "<?= $rating; ?>", "<?= $netCash; ?>",],
             <? endforeach; ?>
           ],
           className: {
@@ -55,6 +69,11 @@ document.addEventListener("DOMContentLoaded", function() {
                     'text-align': 'left'
                 },
             },
+            pagination: {
+                enabled: true,
+                limit: 15,
+                summary: true
+            }
         }).render(document.getElementById("wrapper"));
     });
 </script>

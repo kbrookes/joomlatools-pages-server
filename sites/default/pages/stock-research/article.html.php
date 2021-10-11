@@ -45,7 +45,7 @@ layout: /stock-research
         <?
         $label_bg = 'bg-yellow-400';
         $gauge = 2500;
-        $rating = collection()->content['Company_Rating'];
+        $rating = collection('company-data')->Company_Rating;
         switch ($rating){
             case 'Sell':
                 $label_bg = 'bg-red-600';
