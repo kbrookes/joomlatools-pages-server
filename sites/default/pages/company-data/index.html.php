@@ -15,7 +15,6 @@ metadata:
     robots: noindex, nofollow
 ---
 
-<? page()->title = "Company Data 2"; ?>
 
 
 <link href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
