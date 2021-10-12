@@ -1,5 +1,5 @@
 ---
-title: Stock Research
+title: Company Data
 @route: /company-data
 @collection:
     model: airtable
@@ -15,7 +15,7 @@ metadata:
     robots: noindex, nofollow
 ---
 
-<? page()->title = "Stock Research"; ?>
+<? page()->title = "Company Data 2"; ?>
 
 
 <link href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
