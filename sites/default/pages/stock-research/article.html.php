@@ -4,19 +4,20 @@
     extend: /stock-research
 layout: /stock-research
 ---
+<? $code = collection()->Code; ?>
 <div class="grid grid-cols-3 gap-4 pt-9">
     <div class="col-span-2 content-main">
         <span><a href="<?= route(page('/stock-research/index')) ?>">< GO BACK</a></span>
-        <h1 class="text-primary"><?= collection()->content['Name'] ?></h1>
+        <h1 class="text-primary"><?= collection()->Name ?></h1>
         <div class="info">
-            <p class="font-bold mb-1"><strong class="text-primary uppercase font-light">Sector:</strong> <?= collection()->content['Sector']; ?></p>
-            <p class="font-bold mb-5"><strong class="text-primary uppercase font-light">Industry:</strong> <?= collection()->content['Industry']; ?></p>
+            <p class="font-bold mb-1"><strong class="text-primary uppercase font-light">Sector:</strong> <?= collection()->Sector; ?></p>
+            <p class="font-bold mb-5"><strong class="text-primary uppercase font-light">Industry:</strong> <?= collection()->Industry; ?></p>
         </div>
         <div class="content-overview">
             <? 
-            $overview = collection()->content['Overview'];
+            $overview = collection()->Overview;
             if(is_array($overview)){
-                $overview = collection()->content['Overview']['content'];
+                $overview = collection()->Overview['content'];
                 foreach($overview as $content){
                     $paras = $content['content'];
                     foreach($paras as $para){
@@ -28,9 +29,9 @@ layout: /stock-research
         </div>
         <div class="content-recommendations bg-green-600 text-white p-6">
             <? 
-            $recommendation = collection()->content['Recommendations'];
+            $recommendation = collection()->Recommendations;
             if(is_array($recommendation)){
-                $recommendation = collection()->content['Recommendations']['content'];
+                $recommendation = collection()->Recommendations['content'];
                 foreach($recommendation as $content){
                     $paras = $content['content'];
                     foreach($paras as $para){
@@ -70,7 +71,7 @@ layout: /stock-research
         }
         ?>
         <div class="p-3 text-white uppercase <?= $label_bg; ?> mb-2">
-            RADAR RATING: <strong><?= collection()->content['Company_Rating']; ?></strong>
+            RADAR RATING: <strong><?= collection()->Company_Rating; ?></strong>
         </div>
         <div class="p-3 text-white uppercase bg-primary mb-2">
             MARKET CAP ($M)* <?= collection()->content['Market_Cap']; ?>

@@ -4,7 +4,7 @@ title: Stock Research
 @collection:
     model: airtable
     config:
-        url: https://api.airtable.com/v0/appxFHbo5P6cryBsh/Table%201?maxRecords=300
+        url: https://api.airtable.com/v0/appxFHbo5P6cryBsh/Small%20Caps?maxRecords=300
         api_key: keyvuFe20ZrHxoipH
     state:
         sort: Name
