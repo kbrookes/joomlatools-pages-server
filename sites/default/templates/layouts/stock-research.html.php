@@ -1,6 +1,9 @@
 ---
+title: My awesome default title
 @layout: template://pages/document.html
 ---
+
+<title content="replace"><?= title() ?? $title ?></title>
 
 <ktml:script src="https://js.chargebee.com/v2/chargebee.js" data-cb-site="undertheradarreport-test" />
 <ktml:script src="theme://js/gauge.min.js" />
