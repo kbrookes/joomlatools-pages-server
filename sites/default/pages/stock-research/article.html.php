@@ -47,40 +47,41 @@ layout: /stock-research
         $label_bg = 'bg-yellow-400';
         $gauge = 2500;
         $rating = collection('/company-data')->Company_Rating;
-        switch ($rating){
-            case 'Sell':
+        $rating_label = strtolower($rating);
+        switch ($rating_label){
+            case 'sell':
                 $label_bg = 'bg-red-600';
                 $gauge = 500;
                 break;
-            case 'Take profits':
+            case 'take profits':
                 $label_bg = 'bg-yellow-600';
                 $gauge = 1500;
                 break;
-            case 'Spec Buy':
+            case 'spec buy':
                 $label_bg = 'bg-green-400';
                 $gauge = 3500;
                 break;
-            case 'Buy':
+            case 'buy':
                 $label_bg = 'bg-green-600';
                 $gauge = 4500;
                 break;
-            case 'Hold':
+            case 'hold':
                 $label_bg = 'bg-yellow-400';
                 $gauge = 2500;
                 break;
         }
         ?>
-        <div class="p-3 text-white uppercase <?= $label_bg; ?> mb-2">
-            RADAR RATING: <strong><?= collection()->Company_Rating; ?></strong>
+        <div class="p-3 text-white uppercase <?= $label_bg . ' ' . $rating_label; ?> mb-2">
+            RADAR RATING: <strong><?= collection('/company-data')->Company_Rating; ?></strong>
         </div>
         <div class="p-3 text-white uppercase bg-primary mb-2">
-            MARKET CAP ($M)* <?= collection()->content['Market_Cap']; ?>
+            MARKET CAP ($M)* <?= collection('/company-data')->Market_Cap; ?>
         </div>
         <div class="p-3 text-white uppercase bg-primary mb-2">
-            DIVIDEND YIELD (%)* <?= collection()->content['Div_Yield']; ?>
+            DIVIDEND YIELD (%)* <?= collection('/company-data')->Div_Yield; ?>
         </div>
         <div class="p-3 text-white uppercase bg-primary mb-2">
-            NET CASH ($M) <?= collection()->content['Net_Debt']; ?>
+            NET CASH ($M) <?= collection('/company-data')->Net_Cash_or_Debt_M; ?>
         </div>
         <div class="date-published text-dark py-3">
             <?  $date = collection()->published_at;
