@@ -2,11 +2,11 @@ image:
   file: .gitpod/Dockerfile
   context: .
 
-checkoutLocation: "pages-server"
+checkoutLocation: "joomlatools-server"
 
 tasks:
 
-  - name: Logs - Pages Server
+  - name: Logs - Joomlatools Server
     init: |
       export APP_ENV=development
       export APP_PRELOAD=off
@@ -16,12 +16,14 @@ tasks:
       clear
       sudo -E /init
 
-  - name: Terminal - Pages Server
+  - name: Terminal - Joomlatools Server
     command: |
       clear
       echo ""
       echo "Commands you can try:"
       echo " * gp preview $(gp url 8080)/__info/php-info"
+      echo " * mysql"
+      echo " * joomla"
 
 ports:
   - port: 8080
@@ -36,3 +38,12 @@ ports:
   - port: 9000
     onOpen: ignore
     visibility: private
+  - port: 3306
+    onOpen: ignore
+    visibility: private
+
+vscode:
+  extensions:
+    - cweijan.vscode-mysql-client2
+    - bmewburn.vscode-intelephense-client
+    - ecmel.vscode-html-css

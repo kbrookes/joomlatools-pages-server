@@ -13,20 +13,27 @@ FROM ghcr.io/joomlatools/jt-base:latest AS base
 ARG DEBIAN_FRONTEND=noninteractive
 
 # HTTP Apache
-EXPOSE 8080
-# HTTPS Apache
-EXPOSE 8443
+EXPOSE 8080 8443
 # HTTP Swoole - FastCGI
 EXPOSE 8081
 # HTTP Swoole - Webhooks
 EXPOSE 8082
+# MySQL
+EXPOSE 3306 33060
+
+# Install MySQL
+COPY ./config/mysql /etc/mysql/
+RUN apt-get install -y --no-install-recommends mysql-server php7.4-mysql
 
 ##
 # Stage: build
 ##
 FROM scratch AS build
 
-ENV APP_ROOT=/var/www
+ENV APP_DATA=/srv/www \
+    APP_ROOT=/var/www \
+    APP_VOLUME=/mnt/www \
+    APP_USER=www-data
 
 # Copy all from build
 COPY --from=base / .
