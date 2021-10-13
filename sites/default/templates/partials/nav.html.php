@@ -1,6 +1,6 @@
 <nav class="relative bg-gray-800 border-b-2 border-gray-300 text-gray-200">
   <div class="container mx-auto flex justify-between">
-	<div class="nav-brand relative block p-2 text-xl text-blue-600 font-bold"><a href="/"><img src="theme://images/brand/utrr-logo-reversed.svg?v=001" class="w-full" /></a></div>
+	<div class="nav-brand relative block p-2 text-xl text-blue-600 font-bold"><a href="/"><img src="theme://images/brand/utrr-logo-reversed.svg" class="w-full" /></a></div>
 	<ul class="flex">
 	
 	  <!--Toggleable Link-->
