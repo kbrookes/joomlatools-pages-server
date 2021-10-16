@@ -19,6 +19,12 @@ return [
 
     'extension_config'     =>
     [
+        'ext:airtable.model.records' => [
+            'api_key' => 'keyvuFe20ZrHxoipH'
+        ],
 
+        'ext:storyblok.model.companies' => [
+            'api_key' => 'qUIRVFhERHNhylrUuoPvBAtt'
+        ],
     ]
 ];

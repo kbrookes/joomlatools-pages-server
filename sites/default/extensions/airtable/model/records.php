@@ -4,7 +4,7 @@ class ExtAirtableModelRecords extends ComPagesModelWebservice
 	protected function _initialize(KObjectConfig $config)
 	{
 		$config->append([
-			'api_key'    => null,
+			'api_key'     => null,
 			'data_path'   => 'records',
 			'cache_path'  =>  $this->getObject('com://site/pages.config')->getCachePath().'/airtable',
 		]);
@@ -28,11 +28,6 @@ class ExtAirtableModelRecords extends ComPagesModelWebservice
 			$item += $item['fields'];
 			unset($item['fields']);
 		});
-		
-		//Check if the database has a lastModified column
-		if(!$this->_hash_key && array_key_exists('lastModified', $data[0])) {
-			$this->_hash_key = array('lastModified');
-		}
 		
 		return $data;
 	}

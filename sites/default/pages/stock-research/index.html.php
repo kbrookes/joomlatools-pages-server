@@ -4,7 +4,7 @@ title: Stock Research
 @collection:
     model: ext:storyblok.model.companies
     config:
-        url: https://api.storyblok.com/v2/cdn/stories?filter_query[component][in]=StockOverview&starts_with=stock-research&token=qUIRVFhERHNhylrUuoPvBAtt&version=published
+        url: https://api.storyblok.com/v2/cdn/stories?filter_query[component][in]=StockOverview&starts_with=stock-research&version=published
 layout: /default
 ---
 <h1>Storyblok Data</h1>

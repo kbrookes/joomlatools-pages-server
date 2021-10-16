@@ -5,7 +5,6 @@ title: Company Data
     model: ext:airtable.model.records
     config:
         url: https://api.airtable.com/v0/appxFHbo5P6cryBsh/Small%20Caps?maxRecords=300
-        api_key: keyvuFe20ZrHxoipH
     state:
         sort: Name
         order: asc
