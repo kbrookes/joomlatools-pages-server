@@ -1,5 +1,5 @@
 <?php
-class ExtPagesModelAirtable extends ComPagesModelWebservice
+class ExtAirtableModelRecords extends ComPagesModelWebservice
 {
 	protected function _initialize(KObjectConfig $config)
 	{

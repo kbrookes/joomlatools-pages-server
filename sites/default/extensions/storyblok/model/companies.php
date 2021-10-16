@@ -1,5 +1,5 @@
 <?php
-class ExtPagesModelStoryBlok extends ComPagesModelWebservice
+class ExtStoryblokModelCompanies extends ComPagesModelWebservice
 {
 	protected function _initialize(KObjectConfig $config)
 	{

@@ -2,7 +2,7 @@
 title: Stock Research
 @route: /stock-research
 @collection:
-    model: storyblok
+    model: ext:storyblok.model.companies
     config:
         url: https://api.storyblok.com/v2/cdn/stories?filter_query[component][in]=StockOverview&starts_with=stock-research&token=qUIRVFhERHNhylrUuoPvBAtt&version=published
 layout: /default
