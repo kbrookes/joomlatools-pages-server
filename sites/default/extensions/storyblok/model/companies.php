@@ -4,6 +4,7 @@ class ExtStoryblokModelCompanies extends ComPagesModelWebservice
 	protected function _initialize(KObjectConfig $config)
 	{
 		$config->append([
+			'url'          => 'https://api.storyblok.com/v2/cdn/stories?filter_query[component][in]=StockOverview&starts_with=stock-research&version=published',
 			'api_key'      => null,
 			'data_path'    => 'stories',
 			'identity_key' => 'slug',
