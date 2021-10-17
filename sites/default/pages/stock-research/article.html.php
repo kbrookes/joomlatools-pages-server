@@ -4,7 +4,7 @@
     extend: /stock-research
 layout: /stock-research
 ---
-<? $code = collection()->Code; ?>
+
 <div class="grid grid-cols-3 gap-4 pt-9">
     <div class="col-span-2 content-main">
         <span><a href="<?= route(page('/stock-research/index')) ?>">< GO BACK</a></span>
@@ -46,7 +46,7 @@ layout: /stock-research
         <?
         $label_bg = 'bg-yellow-400';
         $gauge = 2500;
-        $rating = collection('/company-data')->Company_Rating;
+        $rating = collection('')->record->Company_Rating;
         $rating_label = strtolower($rating);
         switch ($rating_label){
             case 'sell':
@@ -72,16 +72,16 @@ layout: /stock-research
         }
         ?>
         <div class="p-3 text-white uppercase <?= $label_bg . ' ' . $rating_label; ?> mb-2">
-            RADAR RATING: <strong><?= collection('/company-data')->Company_Rating; ?></strong>
+            RADAR RATING: <strong><?= collection()->record->Company_Rating; ?></strong>
         </div>
         <div class="p-3 text-white uppercase bg-primary mb-2">
-            MARKET CAP ($M)* <?= collection('/company-data')->Market_Cap; ?>
+            MARKET CAP ($M)* <?= collection()->record->Market_Cap; ?>
         </div>
         <div class="p-3 text-white uppercase bg-primary mb-2">
-            DIVIDEND YIELD (%)* <?= collection('/company-data')->Div_Yield; ?>
+            DIVIDEND YIELD (%)* <?= collection()->record->Div_Yield; ?>
         </div>
         <div class="p-3 text-white uppercase bg-primary mb-2">
-            NET CASH ($M) <?= collection('/company-data')->Net_Cash_or_Debt_M; ?>
+            NET CASH ($M) <?= collection()->record->Net_Cash_or_Debt_M; ?>
         </div>
         <div class="date-published text-dark py-3">
             <?  $date = collection()->published_at;

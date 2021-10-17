@@ -73,3 +73,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }).render(document.getElementById("wrapper"));
     });
 </script>
+
+<? foreach(collection() as $item):
+var_dump($item->record);
+endforeach ;?>
