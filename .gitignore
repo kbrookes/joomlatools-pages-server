@@ -16,6 +16,8 @@ docker-compose.override.yml
 # Vendor (e.g. Composer)
 vendor/*
 !vendor/.gitkeep
+sites/default/vendor
+sites/default/vendor/*
 
 # Volume
 volume
