@@ -5,6 +5,8 @@ session_start();
 # Webhook to create new user in Auth0 on creating subscription in chargeBee
 if(isset($_REQUEST['cbcreatekey']) && $_REQUEST['cbcreatekey']='whv2_AzyuDfSePjVHa1MNe') {
 	define('KOOWA_ROOT'  , getenv('APP_ROOT'));
+	define('PAGES_SITE_ROOT'  , getenv('APP_ROOT').'/sites/default');
+	require KOOWA_VENDOR.'/joomlatools/pages/resources/pages/bootstrapper.php';
 	
 	// load auth0 lib
 	require(PAGES_SITE_ROOT.'/init.php');
@@ -50,6 +52,7 @@ if(isset($_REQUEST['cbcreatekey']) && $_REQUEST['cbcreatekey']='whv2_AzyuDfSePjV
 	return;
 }else{
 	define('KOOWA_ROOT'  , getenv('APP_ROOT'));
+	define('PAGES_SITE_ROOT'  , getenv('APP_ROOT').'/sites/default');
 	define('KOOWA_VENDOR', getenv('APP_DATA').'/vendor');
 	require KOOWA_VENDOR.'/joomlatools/pages/resources/pages/bootstrapper.php';
 	

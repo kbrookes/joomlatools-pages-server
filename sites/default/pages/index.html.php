@@ -5,7 +5,7 @@ layout: /default
 
 <?php
 // load auth0 lib
-require(PAGES_SITE_ROOT.'/init.php');
+require PAGES_SITE_ROOT.'/init.php';
 $userInfo = $auth0->getUser();
 ?>
 
@@ -24,3 +24,4 @@ $userInfo = $auth0->getUser();
 <p>You can manage your account via the customer portal</p>
 <a class="btn btn-secondary text-white hover:text-white" href="javascript:void(0)" data-cb-type="portal" >Manage account</a>
 <? endif; ?>
+<? var_dump(PAGES_SITE_ROOT); ?>
