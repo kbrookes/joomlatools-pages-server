@@ -1,6 +1,6 @@
-# fly.toml file generated for bold-morning-3415 on 2021-10-07T10:31:12+11:00
+# fly.toml file generated for divine-surf-1893 on 2021-10-18T17:41:02+11:00
 
-app = "bold-morning-3415"
+app = "divine-surf-1893"
 
 kill_signal = "SIGTERM"
 kill_timeout = 10
@@ -9,6 +9,14 @@ kill_timeout = 10
   APP_CACHE = 1
   APP_DEBUG = 1
   APP_ENV = "development"
+  AUTH0_CLIENT_ID = "lnITJQiCdHw656mwC12viJHWJrPiVkld"
+  AUTH0_CLIENT_SECRET = "bGYpDk7Hz-aRPh6o247jV_2C-f2NXf1MmeSvum6Ytj29mcfitn0urp130zOawxmf"
+  AUTH0_DOMAIN = "under-the-radar-report.au.auth0.com"
+  AUTH0_M2M_CLIENT_ID = "ODHpTQt1nKkRwl4v0AgAyZSNmuO4Tue5"
+  AUTH0_M2M_CLIENT_SECRET = "Zcf0UYR38kxcbo5KDARG_NKkObtY5b3aaCF_DctrsjaKio6wjL0cVr_u6TZAP7Sx"
+  AUTH0_REDIRECT_URI = "https://utrr.fly.dev"
+  CB_TEST_CLIENT = "undertheradarreport-test"
+  CB_TEST_KEY = "test_3Yp30IDzYdfQgLSU6cXyv8eZL0y9MEw9"
 
 [experimental]
   auto_rollback = true
