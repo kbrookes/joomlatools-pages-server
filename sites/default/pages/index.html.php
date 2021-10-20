@@ -10,7 +10,7 @@ $userInfo = $auth0->getUser();
 ?>
 
 <h2>Landing Page</h2>
-<?= getenv('AUTH0_REDIRECT_URI'); ?>
+
 <?php if(!$_SESSION['isLoggedIn']) : ?>
 <p>You are not currently logged in.</p>
 <p><a class="btn btn-primary text-white hover:text-white" href="/login">login</a> or 
@@ -24,4 +24,3 @@ $userInfo = $auth0->getUser();
 <p>You can manage your account via the customer portal</p>
 <a class="btn btn-secondary text-white hover:text-white" href="javascript:void(0)" data-cb-type="portal" >Manage account</a>
 <? endif; ?>
-<? var_dump(PAGES_SITE_ROOT); ?>

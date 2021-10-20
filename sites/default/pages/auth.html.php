@@ -1,15 +1,16 @@
 ---
 title: Testing persistence of logged in status
+layout: /default
 ---
 
 <?php
 
 // load auth0 lib
-require(PAGES_SITE_ROOT.'/init.php');
+require PAGES_SITE_ROOT.'/init.php';
 
 // Handle errors sent back by Auth0.
 if ((isset($_GET['error']) && !empty($_GET['error'])) || (isset($_GET['error_description']) && !empty($_GET['error_description']))) {
-    printf( '<h1>Error</h1><p>%s</p>', htmlspecialchars( $_GET['error_description'] ) );
+    printf( '<h1>Error2</h1><p>%s</p>', htmlspecialchars( $_GET['error'] ) );
     die();
 }
 
