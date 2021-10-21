@@ -5,8 +5,8 @@ layout: /default
 
 <?php
 // load auth0 lib
-require PAGES_SITE_ROOT.'/init.php';
-$userInfo = $auth0->getUser();
+//require PAGES_SITE_ROOT.'/init.php';
+//$userInfo = $auth0->getUser();
 ?>
 
 <h2>Landing Page</h2>

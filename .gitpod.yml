@@ -27,7 +27,7 @@ tasks:
       echo " * mason"
 
 ports:
-  - port: 8080
+  - port: 8443
     onOpen: open-preview
     visibility: public
   - port: 8443
