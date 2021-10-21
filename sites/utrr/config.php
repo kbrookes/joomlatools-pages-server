@@ -2,8 +2,8 @@
 
 return [
 
-    'cache_path' => getenv('APP_VOLUME').'/bar/cache',
-    'log_path'   => getenv('APP_VOLUME').'/bar/log',
+    'cache_path' => getenv('APP_VOLUME').'/utrr/cache',
+    'log_path'   => getenv('APP_VOLUME').'/utrr/log',
 
     'aliases' => [
         'theme://'  => 'base://theme/',
