@@ -5,18 +5,7 @@ return [
     'cache_path' => getenv('APP_VOLUME').'/utrr/cache',
     'log_path'   => getenv('APP_VOLUME').'/utrr/log',
 
-    'aliases' => [
-        'theme://'  => 'base://theme/',
-        'images://' => 'base://images/',
-    ],
-
     'redirects' =>  include __DIR__.'/redirects.php',
-
-    'extension_path' =>
-    [
-        PAGES_SITE_ROOT . '/extensions',
-        KOOWA_ROOT.'/extensions',
-    ],
 
     'extension_config'     =>
     [
