@@ -17,6 +17,7 @@ tasks:
       sudo -E /init
 
   - name: Terminal - Joomlatools Server
+    init: /bin/bash -e /var/scripts/composer_install.sh
     command: |
       clear
       echo ""

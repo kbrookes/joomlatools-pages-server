@@ -2,7 +2,7 @@
 # Stage: base
 #
 # Build gitpod server
-# Version: 1.0.0-dev build 22
+# Version: 1.0.0-dev build 23
 
 
 FROM ghcr.io/joomlatools/joomlatools-server:latest as base
@@ -58,7 +58,6 @@ RUN mkdir -p $APP_VOLUME; \
 # Composer
 RUN rm -f $APP_DATA/composer.lock
 COPY --chown=$APP_USER:$APP_USER ./config/composer.stub ./config/*composer.lock $APP_DATA/
-RUN /bin/bash -e /var/scripts/composer_install.sh;
 
 USER gitpod
 WORKDIR $APP_ROOT
