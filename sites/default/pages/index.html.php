@@ -24,3 +24,5 @@ $userInfo = $auth0->getUser();
 <p>You can manage your account via the customer portal</p>
 <a class="btn btn-secondary text-white hover:text-white" href="javascript:void(0)" data-cb-type="portal" >Manage account</a>
 <? endif; ?>
+
+<p>You can also look at an example of a fairly simple collection, using <a class="font-bold text-primary" href="/stock-research">Storyblok data</a>, or a more <a class="font-bold text-primary" href="/company-data">complex version using Airtable data</a></p>
