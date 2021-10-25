@@ -5,8 +5,8 @@ layout: /default
 
 <?php
 // load auth0 lib
-//require PAGES_SITE_ROOT.'/init.php';
-//$userInfo = $auth0->getUser();
+require PAGES_SITE_ROOT.'/init.php';
+$userInfo = $auth0->getUser();
 ?>
 
 <h2>Landing Page</h2>
@@ -24,3 +24,4 @@ layout: /default
 <p>You can manage your account via the customer portal</p>
 <a class="btn btn-secondary text-white hover:text-white" href="javascript:void(0)" data-cb-type="portal" >Manage account</a>
 <? endif; ?>
+<p>You can also look at an example of a fairly simple collection, using <a class="font-bold text-primary" href="/stock-research">Storyblok data</a>, or a more <a class="font-bold text-primary" href="/company-data">complex version using Airtable data</a></p>

@@ -1,7 +1,0 @@
-{
-    "require": {
-        "chargebee/chargebee-php" : "^3.0",
-        "auth0/auth0-php": "~7.0",
-        "josegonzalez/dotenv": "dev-master"
-    }
-}
