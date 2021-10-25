@@ -10,7 +10,7 @@ title: My awesome default title
 
 <body>
     <?= partial('nav') ?>
-	<?= partial('hero') ?>
+	<!--<?= partial('hero') ?>-->
 	<div class="container mx-auto">
 		<ktml:content>
 	</div>

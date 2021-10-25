@@ -2,14 +2,16 @@
 # Stage: base
 #
 # Build gitpod server
-# Version: 0.1 build 13
+# Version: 1.0.0-dev build 26
 
 FROM ghcr.io/joomlatools/joomlatools-server:latest as base
 
 ENV APP_DATA=/srv/www \
     APP_ROOT=/workspace/joomlatools-server \
     APP_VOLUME=/mnt/www \
-    APP_USER=gitpod
+    APP_USER=gitpod \
+    APP_HTTP=80 \
+    APP_HTTPS=443
 
 ENV MYSQL_USER=gitpod
 
@@ -51,6 +53,10 @@ RUN apt-get install -y --no-install-recommends sudo; \
 RUN mkdir -p $APP_VOLUME; \
     chown -R $APP_USER:$APP_USER $APP_VOLUME; \
     chown -R $APP_USER:$APP_USER $APP_DATA
+
+# Composer
+RUN rm -f $APP_DATA/composer.lock
+COPY --chown=$APP_USER:$APP_USER ./config/composer.stub ./config/*composer.lock $APP_DATA/
 
 USER gitpod
 WORKDIR $APP_ROOT

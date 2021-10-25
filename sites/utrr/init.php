@@ -1,7 +1,7 @@
 <?php
 
 # load libraries and declare the auth0 obj 
-require(PAGES_SITE_ROOT.'/vendor/autoload.php');
+//require(PAGES_SITE_ROOT.'/vendor/autoload.php');
 //use josegonzalez\Dotenv\Loader;
 use Auth0\SDK\Auth0;
 use Auth0\SDK\Exception\CoreException;
