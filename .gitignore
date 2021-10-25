@@ -9,6 +9,9 @@
 docker-compose.override.yml
 docker-compose.yml
 
+#Fly
+fly.toml
+
 # Dotenv
 .env
 .env.*
