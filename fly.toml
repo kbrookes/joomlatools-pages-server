@@ -17,6 +17,13 @@ kill_timeout = 10
   AUTH0_REDIRECT_URI = "https://utrr.fly.dev"
   CB_TEST_CLIENT = "undertheradarreport-test"
   CB_TEST_KEY = "test_3Yp30IDzYdfQgLSU6cXyv8eZL0y9MEw9"
+  APP_HTTP=80
+  APP_HTTPS=443
+
+# Uncomment to deploy from Git
+#[build.args]
+#  GIT_DEPLOY_URL =
+#  GIT_DEPLOY_BRANCH = "master"
 
 [experimental]
   auto_rollback = true

@@ -117,7 +117,7 @@ and the S6 init system is designed to do exactly that! Joomlatools Server still 
 
 ## Sites
 
-Each application can provide multiple websites. Sites are proxied through Apache and served by the build in FastCGI Swoole Server. A sites Apache vhost configurationn is automatically loaded from `/var/www/sites/[name]/config/apache/server.conf`
+Each application can provide multiple websites. Sites are proxied through Apache and served by the build in FastCGI Swoole Server. A sites Apache vhost configuration is automatically loaded from `/var/www/sites/[name]/config/apache/server.conf`
 
 ## Composer
 
@@ -179,6 +179,12 @@ The following is a list of application environment variables. Defaults are provi
 - `APP_DEBUG=off`
   Globally enable application debug mode _(default)_
 
+- `APP_HTTP=8080`
+  External HTTP port the app is listening on _(default)_
+
+- `APP_HTTP=8443`
+  External HTTPS port the app is listening on _(default)_
+
 - `APP_APIKEY=`
   Bearer authentication token _(generated if not provided)_
 
@@ -191,7 +197,7 @@ A complete list of all environment variables can be found in [.env.default](http
 
 ## Endpoints
 
-The application provides following default HTTP(s) endpoints
+The server provides following default HTTP(s) endpoints
 
 ### Status
 

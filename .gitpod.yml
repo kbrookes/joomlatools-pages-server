@@ -16,6 +16,9 @@ tasks:
       clear
       sudo -E /init
 
+  - name: Composer - Joomlatools Server
+    command: /bin/bash -e /var/scripts/composer_install.sh
+
   - name: Terminal - Joomlatools Server
     command: |
       clear
@@ -24,9 +27,10 @@ tasks:
       echo " * gp preview $(gp url 8080)/__info/php-info"
       echo " * mysql"
       echo " * joomla"
+      echo " * mason"
 
 ports:
-  - port: 8080
+  - port: 8443
     onOpen: open-preview
     visibility: public
   - port: 8443

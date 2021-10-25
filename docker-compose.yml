@@ -14,6 +14,11 @@ services:
       - AUTH0_REDIRECT_URI=http://localhost
       - CB_TEST_CLIENT=undertheradarreport-test
       - CB_TEST_KEY=test_3Yp30IDzYdfQgLSU6cXyv8eZL0y9MEw9
+      - APP_PRELOAD=off
+      - APP_DEBUG=on
+      - APP_CACHE=off
+      - APP_HTTP=8080
+      - APP_HTTPS=8443
     container_name: joomlatools-server
     restart: always
     build:
