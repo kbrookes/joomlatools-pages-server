@@ -6,14 +6,6 @@ services:
     environment:
       - APP_ENV=development
       - APP_DEBUG=1
-      - AUTH0_DOMAIN=under-the-radar-report.au.auth0.com
-      - AUTH0_CLIENT_ID=lnITJQiCdHw656mwC12viJHWJrPiVkld
-      - AUTH0_CLIENT_SECRET=bGYpDk7Hz-aRPh6o247jV_2C-f2NXf1MmeSvum6Ytj29mcfitn0urp130zOawxmf
-      - AUTH0_M2M_CLIENT_ID=ODHpTQt1nKkRwl4v0AgAyZSNmuO4Tue5
-      - AUTH0_M2M_CLIENT_SECRET=Zcf0UYR38kxcbo5KDARG_NKkObtY5b3aaCF_DctrsjaKio6wjL0cVr_u6TZAP7Sx
-      - AUTH0_REDIRECT_URI=http://localhost
-      - CB_TEST_CLIENT=undertheradarreport-test
-      - CB_TEST_KEY=test_3Yp30IDzYdfQgLSU6cXyv8eZL0y9MEw9
       - APP_PRELOAD=off
       - APP_DEBUG=on
       - APP_CACHE=off
