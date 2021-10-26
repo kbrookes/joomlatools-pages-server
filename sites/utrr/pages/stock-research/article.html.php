@@ -83,6 +83,23 @@ layout: /stock-research
         <div class="p-3 text-white uppercase bg-primary mb-2">
             NET CASH ($M) <?= collection()->record->Net_Cash_or_Debt_M; ?>
         </div>
+        <!-- TradingView Widget BEGIN -->
+            <div class="sidebar-tv-widget">
+                <div class="tradingview-widget-container">
+                  <div class="tradingview-widget-container__widget"></div>
+
+                  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
+                  {
+                  "symbol": "ASX:<?= collection()->Code; ?>",
+                  "width": "100%",
+                  "colorTheme": "light",
+                  "isTransparent": false,
+                  "locale": "en"
+                }
+                  </script>
+                </div>
+            </div>
+            <!-- TradingView Widget END -->
         <div class="date-published text-dark py-3">
             <?  $date = collection()->published_at;
                 //$result = $date->format('Y-m-d H:i:s'); ?>
