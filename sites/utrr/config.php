@@ -16,5 +16,8 @@ return [
         'ext:storyblok.model.companies' => [
             'api_key' => 'qUIRVFhERHNhylrUuoPvBAtt'
         ],
+        'ext:storyblok.model.blog' => [
+            'api_key' => 'qUIRVFhERHNhylrUuoPvBAtt'
+        ],
     ]
 ];
