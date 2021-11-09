@@ -19,5 +19,8 @@ return [
         'ext:storyblok.model.blog' => [
             'api_key' => 'qUIRVFhERHNhylrUuoPvBAtt'
         ],
+        'ext:storyblok.model.authors' => [
+            'api_key' => 'qUIRVFhERHNhylrUuoPvBAtt'
+        ],
     ]
 ];
