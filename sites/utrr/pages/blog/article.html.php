@@ -31,8 +31,7 @@ $published = date('Y-m-d',$date);
         <h1 class="text-primary"><?= collection()->title ?></h1>
         <? if(!empty($video)){
             echo '<div class="video" data-id="' . $video . '"></div>';
-        } ?>
-        <? if(!empty($thumb)){?>
+        } elseif(!empty($thumb)){?>
             <img src="<?= $thumb; ?>" />
         <? } ?>
         <div class="content-overview">
@@ -57,7 +56,7 @@ $published = date('Y-m-d',$date);
     });
     
     function videoThumb(id) {
-        var thumb = '<img src="https://i.ytimg.com/vi/ID/hqdefault.jpg">',
+        var thumb = '<img src="https://i.ytimg.com/vi/ID/maxresdefault.jpg">',
             playBtn = '<span></span>';
         return thumb.replace("ID", id) + playBtn;
     }
