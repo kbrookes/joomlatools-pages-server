@@ -9,17 +9,7 @@ title: Stock Research
       order: desc
 layout: /default
 ---
-<?
-function readTime($postContent){
-    $word = str_word_count(strip_tags($postContent));
-    $m = floor($word / 200);
-    $s = floor($word % 200 / (200 / 60));
-    $est = $m . ' minute' . ($m == 1 ? '' : 's') . ', ' . $s . 's';
 
-    return $est;
-}
-
-?>
 <h1>Blog</h1>
 <div class="container mx-auto">
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12">

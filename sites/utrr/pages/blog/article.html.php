@@ -6,23 +6,16 @@ layout: /default
 ---
 <?
 
-function ytThumbMax($videoID) {
-    $url = 'https://i.ytimg.com/vi/' . $videoID . '/maxresdefault.jpg';
-    return $url;
-}
-
 $thumb = null;
 $video = collection()->videoID;
 $image = collection()->image;
 if(!empty($video)){
-    $thumb = ytThumbMax($video);
+    $thumb = youtubeThumb($video, 'maxres');
 } elseif(empty($video) && $image != 'none'){
     $thumb = $image;
 } 
 
 $published = date('Y-m-d',$date);
-
-
 
 ?>
 <div class="grid grid-cols-3 gap-4 pt-9">
@@ -35,7 +28,18 @@ $published = date('Y-m-d',$date);
             <img src="<?= $thumb; ?>" />
         <? } ?>
         <div class="content-overview">
-            <?= collection()->long_text; ?>
+            <? $fullText = collection()->long_text;
+            if(is_array($fullText)){
+                $fullText = collection()->long_text['content'];
+                foreach($fullText as $content){
+                    $paras = $content['content'];
+                    foreach($paras as $para){
+                        echo '<p>' . $para['text'] . '</p>';
+                    }
+                }
+            } 
+            var_dump($fullText);
+            ?>
         </div>
     </div>
     

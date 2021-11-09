@@ -12,10 +12,12 @@ authorImage: none
 <?
 $thumb = null;
 if(!empty($video)){
-    $thumb = 'https://i.ytimg.com/vi/' .$video . '/hqdefault.jpg';
+    $thumb = youtubeThumb($video, 'hq');
 } elseif(empty($video) && $image != 'none'){
     $thumb = $image;
 } 
+
+$readTime = readTime($content);
 
 $published = date('Y-m-d',$date);
 
@@ -42,8 +44,9 @@ $published = date('Y-m-d',$date);
                 <?= $author; ?>
             </p>
             <p class="text-gray-400 dark:text-gray-300">
-                <?= $published; ?> - <?= readTime($content); ?> read
+                <?= $published; ?> - <?= $readTime; ?> read
             </p>
         </div>
     </div>
 </div>
+
