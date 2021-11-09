@@ -30,7 +30,7 @@ $published = date('Y-m-d',$date);
         <span><a href="<?= route(page('/blog/index')) ?>">< GO BACK</a></span>
         <h1 class="text-primary"><?= collection()->title ?></h1>
         <? if(!empty($video)){
-            echo '<div class="video" data-id="' . $video . '"></div>';
+            echo '<div class="video aspect-w-16 aspect-h-9" data-id="' . $video . '"></div>';
         } elseif(!empty($thumb)){?>
             <img src="<?= $thumb; ?>" />
         <? } ?>

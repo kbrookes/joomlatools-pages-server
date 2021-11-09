@@ -104,6 +104,7 @@ async function css() {
 		require("@tailwindcss/forms"),
 		require("@tailwindcss/aspect-ratio"),
 		require("@tailwindcss/line-clamp"),
+		require('@tailwindcss/aspect-ratio'),
 	  ],
 	},
 	sass: true,

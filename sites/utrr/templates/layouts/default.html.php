@@ -6,7 +6,7 @@ title: My awesome default title
 <title content="replace"><?= title() ?? $title ?></title>
 
 <ktml:script src="https://js.chargebee.com/v2/chargebee.js" data-cb-site="undertheradarreport-test" />
-<ktml:style src="theme://css/styles.css?v=023" rel="preload" as="style" type="text/css" />
+<ktml:style src="theme://css/styles.css?v=024" rel="preload" as="style" type="text/css" />
 
 <body>
     <?= partial('nav') ?>
