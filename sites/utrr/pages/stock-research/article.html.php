@@ -4,7 +4,6 @@
     extend: /stock-research
 layout: /stock-research
 ---
-
 <div class="grid grid-cols-3 gap-4 pt-9">
     <div class="col-span-2 content-main">
         <span><a href="<?= route(page('/stock-research/index')) ?>">< GO BACK</a></span>
@@ -17,15 +16,41 @@ layout: /stock-research
             <? 
             $overview = collection()->overview;
             if(!empty($overview)){
-                if(is_array($overview)){
-                    $overview = collection()->overview['content'];
-                    foreach($overview as $content){
-                        $paras = $content['content'];
-                        foreach($paras as $para){
-                            echo '<p>' . $para['text'] . '</p>';
+                $overview = $overview['content'];
+                foreach($overview as $content) { 
+                    $type = $content['type'];
+                    $contents = $content['content'];
+                    $attrs = $content['attrs'];
+                    $level = $attrs['level'];
+                    echo tagType($type, $level, 'open');
+                    foreach($contents as $content){
+                        $tagType = $content['type'];
+                        $marks = $content['marks'];
+                        $text = $content['text'];
+                        echo textStyle($text, $marks);
+                        if($type == 'bullet_list'){
+                            $listType = $content['type'];
+                            $listContents = $content['content'];
+                            $listAttrs = $content['attrs'];
+                            $listLevel = $attrs['level'];
+                            echo tagType($listType, $listLevel, 'open');
+                            foreach($listContents as $listItem){
+                                $listText = $listItem['content'];
+                                //$listMarks = $listItem['marks'];
+                                //echo textStyle($listText, $listMarks);
+
+                               // var_dump($listText);
+
+                            }
+                            echo tagType($listType, $listLevel, 'close');
                         }
+
+                        //var_dump($tagType);
                     }
-                }
+                    echo tagType($type, $level, 'close');
+                    //var_dump($contents);
+                } 
+               //var_dump($overview);
             } else {
                 $overview = collection()->old_intro;
                 print_r($overview);
@@ -46,6 +71,15 @@ layout: /stock-research
                 }?>
         </div>
         <? } ?>
+    <!-- START RESEARCH LOOP -->
+        <div class="research-articles">
+            <? foreach collection('stock-research/reports', ['slug' => $item->slug]) as $report: ?>
+                <div class="research-articles__report">
+                    <h3><?= $item->title; ?></h3>
+                </div>
+            <? endforeach; ?>
+        </div>
+    <!-- END RESEARCH LOOP -->
     </div>
     <div class="content-sidebar bg-blue-50 p-6">
         <?

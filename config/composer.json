@@ -24,6 +24,7 @@
     "joomlatools/pages": "~0.21",
     "chargebee/chargebee-php" : "^3.0",
     "auth0/auth0-php": "~7.0",
+    "storyblok/richtext-resolver": "dev-master",
     "guzzlehttp/guzzle": "^6.5"
   }
 }
