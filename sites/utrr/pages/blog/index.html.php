@@ -4,7 +4,6 @@ title: Stock Research
 @collection:
     model: ext:storyblok.model.blog
     state:
-      limit: 25
       sort: first_published_at
       order: desc
 layout: /default

@@ -4,7 +4,7 @@ class ExtStoryblokModelBlog extends ComPagesModelWebservice
 	protected function _initialize(KObjectConfig $config)
 	{
 		$config->append([
-			'url'          => 'https://api.storyblok.com/v2/cdn/stories?sort_by=first_published_at:desc&filter_query[component][in]=Post&starts_with=blog&version=published',
+			'url'          => 'https://api.storyblok.com/v2/cdn/stories?sort_by=first_published_at:desc&filter_query[component][in]=Post&starts_with=blog&version=published&per_page=100',
 			'api_key'      => null,
 			'data_path'    => 'stories',
 			'identity_key' => 'slug',

@@ -8,39 +8,44 @@ layout: /stock-research
 <div class="grid grid-cols-3 gap-4 pt-9">
     <div class="col-span-2 content-main">
         <span><a href="<?= route(page('/stock-research/index')) ?>">< GO BACK</a></span>
-        <h1 class="text-primary"><?= collection()->Name ?></h1>
+        <h1 class="text-primary"><?= collection()->title ?></h1>
         <div class="info">
-            <p class="font-bold mb-1"><strong class="text-primary uppercase font-light">Sector:</strong> <?= collection()->Sector; ?></p>
-            <p class="font-bold mb-5"><strong class="text-primary uppercase font-light">Industry:</strong> <?= collection()->Industry; ?></p>
+            <p class="font-bold mb-1"><strong class="text-primary uppercase font-light">Sector:</strong> <?= collection()->sector; ?></p>
+            <p class="font-bold mb-5"><strong class="text-primary uppercase font-light">Industry:</strong> <?= collection()->industry; ?></p>
         </div>
         <div class="content-overview">
             <? 
-            $overview = collection()->Overview;
-            if(is_array($overview)){
-                $overview = collection()->Overview['content'];
-                foreach($overview as $content){
-                    $paras = $content['content'];
-                    foreach($paras as $para){
-                        echo '<p>' . $para['text'] . '</p>';
+            $overview = collection()->overview;
+            if(!empty($overview)){
+                if(is_array($overview)){
+                    $overview = collection()->overview['content'];
+                    foreach($overview as $content){
+                        $paras = $content['content'];
+                        foreach($paras as $para){
+                            echo '<p>' . $para['text'] . '</p>';
+                        }
                     }
                 }
+            } else {
+                $overview = collection()->old_intro;
+                print_r($overview);
             }
             ?>
         </div>
+        <? 
+        $recommendation = collection()->recommendations;
+        if(is_array($recommendation)){?>
         <div class="content-recommendations bg-green-600 text-white p-6">
-            <? 
-            $recommendation = collection()->Recommendations;
-            if(is_array($recommendation)){
-                $recommendation = collection()->Recommendations['content'];
+            <?
+                $recommendation = collection()->recommendations['content'];
                 foreach($recommendation as $content){
                     $paras = $content['content'];
                     foreach($paras as $para){
                         echo '<p>' . $para['text'] . '</p>';
                     }
-                }
-            }
-            ?>
+                }?>
         </div>
+        <? } ?>
     </div>
     <div class="content-sidebar bg-blue-50 p-6">
         <?
@@ -88,9 +93,9 @@ layout: /stock-research
                 <div class="tradingview-widget-container">
                   <div class="tradingview-widget-container__widget"></div>
 
-                  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
+                  <script data-inline type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
                   {
-                  "symbol": "ASX:<?= collection()->Code; ?>",
+                  "symbol": "ASX:<?= collection()->code; ?>",
                   "width": "100%",
                   "colorTheme": "light",
                   "isTransparent": false,
