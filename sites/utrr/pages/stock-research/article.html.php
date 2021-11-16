@@ -73,7 +73,7 @@ layout: /stock-research
         <? } ?>
     <!-- START RESEARCH LOOP -->
         <div class="research-articles">
-            <? foreach collection('stock-research/reports', ['slug' => $item->slug]) as $report: ?>
+            <? foreach(collection('/stock-research/reports', ['slug' => $item->slug]) as $report): ?>
                 <div class="research-articles__report">
                     <h3><?= $item->title; ?></h3>
                 </div>

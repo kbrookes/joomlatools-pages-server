@@ -1,5 +1,5 @@
 ---
-@route: /stock-research/[*:slug]/reports
+@route: /reports
 @collection:
     model: ext:storyblok.model.reports
     state:
